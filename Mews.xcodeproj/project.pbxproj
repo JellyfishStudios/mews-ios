@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E6033591DBF3F4D00889D99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6033581DBF3F4D00889D99 /* AppDelegate.swift */; };
+		6E60335B1DBF3F4D00889D99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60335A1DBF3F4D00889D99 /* ViewController.swift */; };
+		6E60335E1DBF3F4D00889D99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E60335C1DBF3F4D00889D99 /* Main.storyboard */; };
+		6E6033611DBF3F4D00889D99 /* Mews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E60335F1DBF3F4D00889D99 /* Mews.xcdatamodeld */; };
+		6E6033631DBF3F4D00889D99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6033621DBF3F4D00889D99 /* Assets.xcassets */; };
+		6E6033661DBF3F4D00889D99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6033641DBF3F4D00889D99 /* LaunchScreen.storyboard */; };
+		6E89A95C1DDAF47100CA06C2 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9501DDAF47100CA06C2 /* AppContext.swift */; };
+		6E89A95D1DDAF47100CA06C2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9511DDAF47100CA06C2 /* Article.swift */; };
+		6E89A95E1DDAF47100CA06C2 /* ArticleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9521DDAF47100CA06C2 /* ArticleManager.swift */; };
+		6E89A95F1DDAF47100CA06C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9531DDAF47100CA06C2 /* Extensions.swift */; };
+		6E89A9601DDAF47100CA06C2 /* FetchJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9541DDAF47100CA06C2 /* FetchJSON.swift */; };
+		6E89A9611DDAF47100CA06C2 /* FuriganaTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9551DDAF47100CA06C2 /* FuriganaTextParser.swift */; };
+		6E89A9621DDAF47100CA06C2 /* RubyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9561DDAF47100CA06C2 /* RubyTextView.swift */; };
+		6E89A9631DDAF47100CA06C2 /* ScrapeArticleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9571DDAF47100CA06C2 /* ScrapeArticleText.swift */; };
+		6E89A9651DDAF47100CA06C2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A9591DDAF47100CA06C2 /* TableViewController.swift */; };
+		6E89A96F1DDAF79200CA06C2 /* PopularPrimaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A96D1DDAF79200CA06C2 /* PopularPrimaryTableViewCell.swift */; };
+		6E89A9701DDAF79200CA06C2 /* PopularSecondaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E89A96E1DDAF79200CA06C2 /* PopularSecondaryTableViewCell.swift */; };
+		6E89A9741DDAF7DB00CA06C2 /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = 6E89A9711DDAF7DB00CA06C2 /* article.html */; };
+		6E89A9751DDAF7DB00CA06C2 /* list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E89A9721DDAF7DB00CA06C2 /* list.json */; };
+		6E89A9761DDAF7DB00CA06C2 /* popular.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E89A9731DDAF7DB00CA06C2 /* popular.json */; };
+		6EA1B2F51EAC9ED000B6073C /* FuriganaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1B2F41EAC9ED000B6073C /* FuriganaTextView.swift */; };
+		6EA1B2F71EAC9F0700B6073C /* FuriganaLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1B2F61EAC9F0700B6073C /* FuriganaLayoutManager.swift */; };
+		6EA1B2F91EAC9F4400B6073C /* FuriganaWordKerner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1B2F81EAC9F4400B6073C /* FuriganaWordKerner.swift */; };
+		6EA1B2FB1EAC9FAA00B6073C /* Furigana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1B2FA1EAC9FAA00B6073C /* Furigana.swift */; };
+		FA391AA984A8E2FDF1928DCD /* Pods_Mews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C90785AEA07CC926F1E9487 /* Pods_Mews.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C90785AEA07CC926F1E9487 /* Pods_Mews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AFEF3929A0765A2486E444 /* Pods-Mews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mews.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mews/Pods-Mews.release.xcconfig"; sourceTree = "<group>"; };
+		6E6033551DBF3F4D00889D99 /* Mews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6033581DBF3F4D00889D99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E60335A1DBF3F4D00889D99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E60335D1DBF3F4D00889D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E6033601DBF3F4D00889D99 /* Mews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mews.xcdatamodel; sourceTree = "<group>"; };
+		6E6033621DBF3F4D00889D99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E6033651DBF3F4D00889D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E6033671DBF3F4D00889D99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E89A9501DDAF47100CA06C2 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		6E89A9511DDAF47100CA06C2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		6E89A9521DDAF47100CA06C2 /* ArticleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
+		6E89A9531DDAF47100CA06C2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6E89A9541DDAF47100CA06C2 /* FetchJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchJSON.swift; sourceTree = "<group>"; };
+		6E89A9551DDAF47100CA06C2 /* FuriganaTextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuriganaTextParser.swift; sourceTree = "<group>"; };
+		6E89A9561DDAF47100CA06C2 /* RubyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RubyTextView.swift; sourceTree = "<group>"; };
+		6E89A9571DDAF47100CA06C2 /* ScrapeArticleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapeArticleText.swift; sourceTree = "<group>"; };
+		6E89A9591DDAF47100CA06C2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6E89A96D1DDAF79200CA06C2 /* PopularPrimaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularPrimaryTableViewCell.swift; sourceTree = "<group>"; };
+		6E89A96E1DDAF79200CA06C2 /* PopularSecondaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularSecondaryTableViewCell.swift; sourceTree = "<group>"; };
+		6E89A9711DDAF7DB00CA06C2 /* article.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = article.html; path = Resources/article.html; sourceTree = "<group>"; };
+		6E89A9721DDAF7DB00CA06C2 /* list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = list.json; path = Resources/list.json; sourceTree = "<group>"; };
+		6E89A9731DDAF7DB00CA06C2 /* popular.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = popular.json; path = Resources/popular.json; sourceTree = "<group>"; };
+		6EA1B2F41EAC9ED000B6073C /* FuriganaTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuriganaTextView.swift; sourceTree = "<group>"; };
+		6EA1B2F61EAC9F0700B6073C /* FuriganaLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuriganaLayoutManager.swift; sourceTree = "<group>"; };
+		6EA1B2F81EAC9F4400B6073C /* FuriganaWordKerner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuriganaWordKerner.swift; sourceTree = "<group>"; };
+		6EA1B2FA1EAC9FAA00B6073C /* Furigana.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Furigana.swift; sourceTree = "<group>"; };
+		90BDEC6B848EBCA344CCB805 /* Pods-Mews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mews/Pods-Mews.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E6033521DBF3F4D00889D99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA391AA984A8E2FDF1928DCD /* Pods_Mews.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E60334C1DBF3F4D00889D99 = {
+			isa = PBXGroup;
+			children = (
+				6E6033571DBF3F4D00889D99 /* Mews */,
+				6E6033561DBF3F4D00889D99 /* Products */,
+				849F5D9C4509788062CBD3BC /* Pods */,
+				BA799030E2B6A010156CCE24 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6E6033561DBF3F4D00889D99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E6033551DBF3F4D00889D99 /* Mews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E6033571DBF3F4D00889D99 /* Mews */ = {
+			isa = PBXGroup;
+			children = (
+				6EA1B2FC1EACE1B700B6073C /* Deprecated */,
+				6E89A9681DDAF4D700CA06C2 /* Application */,
+				6E89A9691DDAF55E00CA06C2 /* Models */,
+				6E89A96C1DDAF68800CA06C2 /* Views */,
+				6E89A96B1DDAF59500CA06C2 /* Controllers */,
+				6E89A96A1DDAF58000CA06C2 /* Helpers */,
+				6E89A9771DDAF7E400CA06C2 /* Resources */,
+				6E6033621DBF3F4D00889D99 /* Assets.xcassets */,
+			);
+			path = Mews;
+			sourceTree = "<group>";
+		};
+		6E89A9681DDAF4D700CA06C2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				6E6033641DBF3F4D00889D99 /* LaunchScreen.storyboard */,
+				6E60335C1DBF3F4D00889D99 /* Main.storyboard */,
+				6E6033581DBF3F4D00889D99 /* AppDelegate.swift */,
+				6E6033671DBF3F4D00889D99 /* Info.plist */,
+				6E60335F1DBF3F4D00889D99 /* Mews.xcdatamodeld */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		6E89A9691DDAF55E00CA06C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9511DDAF47100CA06C2 /* Article.swift */,
+				6EA1B2F61EAC9F0700B6073C /* FuriganaLayoutManager.swift */,
+				6EA1B2F81EAC9F4400B6073C /* FuriganaWordKerner.swift */,
+				6EA1B2FA1EAC9FAA00B6073C /* Furigana.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6E89A96A1DDAF58000CA06C2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9501DDAF47100CA06C2 /* AppContext.swift */,
+				6E89A9521DDAF47100CA06C2 /* ArticleManager.swift */,
+				6E89A9531DDAF47100CA06C2 /* Extensions.swift */,
+				6E89A9541DDAF47100CA06C2 /* FetchJSON.swift */,
+				6E89A9551DDAF47100CA06C2 /* FuriganaTextParser.swift */,
+				6E89A9571DDAF47100CA06C2 /* ScrapeArticleText.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		6E89A96B1DDAF59500CA06C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9591DDAF47100CA06C2 /* TableViewController.swift */,
+				6E60335A1DBF3F4D00889D99 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6E89A96C1DDAF68800CA06C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A96D1DDAF79200CA06C2 /* PopularPrimaryTableViewCell.swift */,
+				6E89A96E1DDAF79200CA06C2 /* PopularSecondaryTableViewCell.swift */,
+				6EA1B2F41EAC9ED000B6073C /* FuriganaTextView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6E89A9771DDAF7E400CA06C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9781DDAF7F200CA06C2 /* MockData */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6E89A9781DDAF7F200CA06C2 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9711DDAF7DB00CA06C2 /* article.html */,
+				6E89A9721DDAF7DB00CA06C2 /* list.json */,
+				6E89A9731DDAF7DB00CA06C2 /* popular.json */,
+			);
+			name = MockData;
+			sourceTree = "<group>";
+		};
+		6EA1B2FC1EACE1B700B6073C /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				6E89A9561DDAF47100CA06C2 /* RubyTextView.swift */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		849F5D9C4509788062CBD3BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90BDEC6B848EBCA344CCB805 /* Pods-Mews.debug.xcconfig */,
+				56AFEF3929A0765A2486E444 /* Pods-Mews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA799030E2B6A010156CCE24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C90785AEA07CC926F1E9487 /* Pods_Mews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E6033541DBF3F4D00889D99 /* Mews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E60336A1DBF3F4D00889D99 /* Build configuration list for PBXNativeTarget "Mews" */;
+			buildPhases = (
+				F2217E8CB2EA6F76CE2B16BF /* [CP] Check Pods Manifest.lock */,
+				6E6033511DBF3F4D00889D99 /* Sources */,
+				6E6033521DBF3F4D00889D99 /* Frameworks */,
+				6E6033531DBF3F4D00889D99 /* Resources */,
+				49E2D71E7A4A58474D734824 /* [CP] Embed Pods Frameworks */,
+				4B99C292E8E071EAD79BA56E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mews;
+			productName = Mews;
+			productReference = 6E6033551DBF3F4D00889D99 /* Mews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E60334D1DBF3F4D00889D99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Adrian Dunne";
+				TargetAttributes = {
+					6E6033541DBF3F4D00889D99 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = QPU7LWUEPH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6E6033501DBF3F4D00889D99 /* Build configuration list for PBXProject "Mews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E60334C1DBF3F4D00889D99;
+			productRefGroup = 6E6033561DBF3F4D00889D99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E6033541DBF3F4D00889D99 /* Mews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E6033531DBF3F4D00889D99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6033661DBF3F4D00889D99 /* LaunchScreen.storyboard in Resources */,
+				6E6033631DBF3F4D00889D99 /* Assets.xcassets in Resources */,
+				6E60335E1DBF3F4D00889D99 /* Main.storyboard in Resources */,
+				6E89A9751DDAF7DB00CA06C2 /* list.json in Resources */,
+				6E89A9741DDAF7DB00CA06C2 /* article.html in Resources */,
+				6E89A9761DDAF7DB00CA06C2 /* popular.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49E2D71E7A4A58474D734824 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mews/Pods-Mews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B99C292E8E071EAD79BA56E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mews/Pods-Mews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2217E8CB2EA6F76CE2B16BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E6033511DBF3F4D00889D99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E6033611DBF3F4D00889D99 /* Mews.xcdatamodeld in Sources */,
+				6E89A9621DDAF47100CA06C2 /* RubyTextView.swift in Sources */,
+				6E89A9651DDAF47100CA06C2 /* TableViewController.swift in Sources */,
+				6E89A9631DDAF47100CA06C2 /* ScrapeArticleText.swift in Sources */,
+				6EA1B2F51EAC9ED000B6073C /* FuriganaTextView.swift in Sources */,
+				6E89A95C1DDAF47100CA06C2 /* AppContext.swift in Sources */,
+				6E60335B1DBF3F4D00889D99 /* ViewController.swift in Sources */,
+				6E6033591DBF3F4D00889D99 /* AppDelegate.swift in Sources */,
+				6E89A95E1DDAF47100CA06C2 /* ArticleManager.swift in Sources */,
+				6E89A95D1DDAF47100CA06C2 /* Article.swift in Sources */,
+				6EA1B2F91EAC9F4400B6073C /* FuriganaWordKerner.swift in Sources */,
+				6E89A96F1DDAF79200CA06C2 /* PopularPrimaryTableViewCell.swift in Sources */,
+				6E89A9611DDAF47100CA06C2 /* FuriganaTextParser.swift in Sources */,
+				6EA1B2F71EAC9F0700B6073C /* FuriganaLayoutManager.swift in Sources */,
+				6E89A9701DDAF79200CA06C2 /* PopularSecondaryTableViewCell.swift in Sources */,
+				6EA1B2FB1EAC9FAA00B6073C /* Furigana.swift in Sources */,
+				6E89A9601DDAF47100CA06C2 /* FetchJSON.swift in Sources */,
+				6E89A95F1DDAF47100CA06C2 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6E60335C1DBF3F4D00889D99 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E60335D1DBF3F4D00889D99 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E6033641DBF3F4D00889D99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E6033651DBF3F4D00889D99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E6033681DBF3F4D00889D99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6E6033691DBF3F4D00889D99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E60336B1DBF3F4D00889D99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90BDEC6B848EBCA344CCB805 /* Pods-Mews.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QPU7LWUEPH;
+				INFOPLIST_FILE = Mews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anogaijin.mews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6E60336C1DBF3F4D00889D99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56AFEF3929A0765A2486E444 /* Pods-Mews.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = QPU7LWUEPH;
+				INFOPLIST_FILE = Mews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anogaijin.mews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E6033501DBF3F4D00889D99 /* Build configuration list for PBXProject "Mews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E6033681DBF3F4D00889D99 /* Debug */,
+				6E6033691DBF3F4D00889D99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E60336A1DBF3F4D00889D99 /* Build configuration list for PBXNativeTarget "Mews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E60336B1DBF3F4D00889D99 /* Debug */,
+				6E60336C1DBF3F4D00889D99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6E60335F1DBF3F4D00889D99 /* Mews.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6E6033601DBF3F4D00889D99 /* Mews.xcdatamodel */,
+			);
+			currentVersion = 6E6033601DBF3F4D00889D99 /* Mews.xcdatamodel */;
+			path = Mews.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6E60334D1DBF3F4D00889D99 /* Project object */;
+}
