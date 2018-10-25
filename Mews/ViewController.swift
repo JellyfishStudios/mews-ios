@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         loadingView!.addSubview(loadingImageView)
         
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        activityIndicator!.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator!.style = UIActivityIndicatorView.Style.gray
         activityIndicator!.center = loadingView!.center
         activityIndicator!.frame.origin.y -= ((loadingImageView.frame.size.height / 2) + 20)
         

@@ -32,13 +32,13 @@ class FuriganaLayoutManager: NSLayoutManager
         
         let attributesToEnumerate = characterRange(forGlyphRange: glyphsToShow, actualGlyphRange: nil)
         
-        textStorage?.enumerateAttribute(kFuriganaAttributeName, in: attributesToEnumerate, options: []) { (attributeValue, range, _) in
+        textStorage?.enumerateAttribute(NSAttributedString.Key(rawValue: kFuriganaAttributeName), in: attributesToEnumerate, options: []) { (attributeValue, range, _) in
             if let furiganaStringRepresentation = attributeValue as? String
             {
                 if let furiganaText = FuriganaTextFromStringRepresentation(furiganaStringRepresentation as NSString)
                 {
-                    let font = self.textStorage!.attribute(NSFontAttributeName, at: range.location, effectiveRange: nil) as! UIFont
-                    let color = self.textStorage!.attribute(NSForegroundColorAttributeName, at: range.location, effectiveRange: nil) as? UIColor
+                    let font = self.textStorage!.attribute(NSAttributedString.Key.font, at: range.location, effectiveRange: nil) as! UIFont
+                    let color = self.textStorage!.attribute(NSAttributedString.Key.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
                     
                     self.drawFurigana(furiganaText, characterRange: range, characterFont: font, textColor: color)
                 }
@@ -64,16 +64,16 @@ class FuriganaLayoutManager: NSLayoutManager
         paragrapStyle.paragraphSpacing = 0.25 * characterFont.lineHeight
         
         var furiganaAttributes = [
-            NSFontAttributeName : furiganaFont,
-            NSParagraphStyleAttributeName : paragrapStyle,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font) : furiganaFont,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle) : paragrapStyle,
             ]
         
         if let color = textColor
         {
-            furiganaAttributes[NSForegroundColorAttributeName] = color
+            furiganaAttributes[convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor)] = color
         }
         
-        text.draw(in: glyphBounds, withAttributes: furiganaAttributes)
+        text.draw(in: glyphBounds, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(furiganaAttributes))
         
         if kFuriganaDebugging
         {
@@ -82,4 +82,15 @@ class FuriganaLayoutManager: NSLayoutManager
         }
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

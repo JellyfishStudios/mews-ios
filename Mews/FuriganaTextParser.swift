@@ -18,8 +18,8 @@ open class FuriganaTextParser {
             if let result = x.find("<ruby>(.+?)<rt>(.+?)</rt></ruby>") {
                 let tempString = x as NSString
                 
-                let a = tempString.substring(with: result.rangeAt(1))
-                let b = tempString.substring(with: result.rangeAt(2))
+                let a = tempString.substring(with: result.range(at: 1))
+                let b = tempString.substring(with: result.range(at: 2))
                 
                 endPos += a.characters.count
                 

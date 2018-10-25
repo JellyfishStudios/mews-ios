@@ -47,7 +47,7 @@ class TableViewController: UITableViewController {
         parentView.addSubview(rubyView)
     }
     
-    func refresh()
+    @objc func refresh()
     {
         loadDataIntoTable()
         
@@ -73,7 +73,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         refreshControl = UIRefreshControl()
-        refreshControl!.addTarget(self, action: #selector(TableViewController.refresh), for: UIControlEvents.valueChanged)
+        refreshControl!.addTarget(self, action: #selector(TableViewController.refresh), for: UIControl.Event.valueChanged)
         
         tableView.delegate = self
         tableView.dataSource = self

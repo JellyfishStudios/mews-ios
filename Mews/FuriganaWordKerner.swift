@@ -12,23 +12,23 @@ class FuriganaWordKerner: NSObject, NSLayoutManagerDelegate
     
     // MARK: - NSLayoutManager Delegate
     
-    func layoutManager(_ layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSGlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange) -> Int
+    func layoutManager(_ layoutManager: NSLayoutManager, shouldGenerateGlyphs glyphs: UnsafePointer<CGGlyph>, properties props: UnsafePointer<NSLayoutManager.GlyphProperty>, characterIndexes charIndexes: UnsafePointer<Int>, font aFont: UIFont, forGlyphRange glyphRange: NSRange) -> Int
     {
         let glyphCount = glyphRange.length
         let textStorageString = layoutManager.textStorage!.string as NSString
-        var newProps: UnsafeMutablePointer<NSGlyphProperty>? = nil
+        var newProps: UnsafeMutablePointer<NSLayoutManager.GlyphProperty>? = nil
         
         for i in 0..<glyphCount
         {
             let charIndex = charIndexes[i]
-            if let _ = layoutManager.textStorage!.attribute(kFuriganaAttributeName, at: charIndex, effectiveRange: nil) as? NSString
+            if let _ = layoutManager.textStorage!.attribute(convertToNSAttributedStringKey(kFuriganaAttributeName), at: charIndex, effectiveRange: nil) as? NSString
             {
                 if textStorageString.substringAtIndex(charIndex) == kDefaultFuriganaKerningControlCharacter
                 {
                     if newProps == nil
                     {
-                        let memSize = Int(MemoryLayout<NSGlyphProperty>.size * glyphCount)
-                        newProps = unsafeBitCast(malloc(memSize), to: UnsafeMutablePointer<NSGlyphProperty>.self)
+                        let memSize = Int(MemoryLayout<NSLayoutManager.GlyphProperty>.size * glyphCount)
+                        newProps = unsafeBitCast(malloc(memSize), to: UnsafeMutablePointer<NSLayoutManager.GlyphProperty>.self)
                         memcpy(newProps, props, memSize)
                     }
                     
@@ -49,9 +49,9 @@ class FuriganaWordKerner: NSObject, NSLayoutManagerDelegate
         }
     }
     
-    func layoutManager(_ layoutManager: NSLayoutManager, shouldUse action: NSControlCharacterAction, forControlCharacterAt charIndex: Int) -> NSControlCharacterAction
+    func layoutManager(_ layoutManager: NSLayoutManager, shouldUse action: NSLayoutManager.ControlCharacterAction, forControlCharacterAt charIndex: Int) -> NSLayoutManager.ControlCharacterAction
     {
-        if layoutManager.textStorage!.attribute(kFuriganaAttributeName, at: charIndex, effectiveRange: nil) != nil
+        if layoutManager.textStorage!.attribute(convertToNSAttributedStringKey(kFuriganaAttributeName), at: charIndex, effectiveRange: nil) != nil
         {
             return .whitespace
         }
@@ -63,16 +63,16 @@ class FuriganaWordKerner: NSObject, NSLayoutManagerDelegate
     {
         var width: CGFloat = 0
         
-        if let furiganaAttributeValue = layoutManager.textStorage?.attribute(kFuriganaAttributeName, at: charIndex, effectiveRange: nil) as? NSString
+        if let furiganaAttributeValue = layoutManager.textStorage?.attribute(convertToNSAttributedStringKey(kFuriganaAttributeName), at: charIndex, effectiveRange: nil) as? NSString
         {
             if let furiganaText = FuriganaTextFromStringRepresentation(furiganaAttributeValue),
                 let originalText = FuriganaOriginalTextFromStringrepresentation(furiganaAttributeValue)
             {
-                let originalFont = layoutManager.textStorage!.attribute(NSFontAttributeName, at: charIndex, effectiveRange: nil) as! UIFont
+                let originalFont = layoutManager.textStorage!.attribute(NSAttributedString.Key.font, at: charIndex, effectiveRange: nil) as! UIFont
                 let furiganaFont = originalFont.withSize(originalFont.pointSize / kDefaultFuriganaFontMultiple)
                 
-                let originalWidth = originalText.size(attributes: [NSFontAttributeName : originalFont]).width
-                let furiganaWidth = furiganaText.size(attributes: [NSFontAttributeName : furiganaFont]).width
+                let originalWidth = originalText.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font) : originalFont])).width
+                let furiganaWidth = furiganaText.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font) : furiganaFont])).width
                 
                 width = ceil((furiganaWidth - originalWidth) / 2)
                 if width < 0
@@ -89,7 +89,7 @@ class FuriganaWordKerner: NSObject, NSLayoutManagerDelegate
     {
         var longestEffectiveRange: NSRange = NSMakeRange(0, 0)
         if let textStorage = layoutManager.textStorage,
-            let _ = textStorage.attribute(kFuriganaAttributeName, at: charIndex, longestEffectiveRange: &longestEffectiveRange, in: NSMakeRange(0, textStorage.length)) as? NSString
+            let _ = textStorage.attribute(convertToNSAttributedStringKey(kFuriganaAttributeName), at: charIndex, longestEffectiveRange: &longestEffectiveRange, in: NSMakeRange(0, textStorage.length)) as? NSString
         {
             return charIndex == longestEffectiveRange.location
         }
@@ -99,4 +99,20 @@ class FuriganaWordKerner: NSObject, NSLayoutManagerDelegate
         }
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKey(_ input: String) -> NSAttributedString.Key {
+	return NSAttributedString.Key(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

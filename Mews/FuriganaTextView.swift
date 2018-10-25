@@ -93,7 +93,7 @@ open class FuriganaTextView: UIView
                 paragrapStyle.firstLineHeadIndent = 9
             }
             
-            validContents.addAttribute(NSParagraphStyleAttributeName, value: paragrapStyle, range: fullTextRange)
+            validContents.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragrapStyle, range: fullTextRange)
             
             let textStorage = NSTextStorage(attributedString: validContents)
             textStorage.addLayoutManager(layoutManager)
@@ -121,7 +121,7 @@ open class FuriganaTextView: UIView
                 paragrapStyle.firstLineHeadIndent = 9
             }
             
-            validContents.addAttribute(NSParagraphStyleAttributeName, value: paragrapStyle, range: fullTextRange)
+            validContents.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragrapStyle, range: fullTextRange)
             
             let textView = textViewWithTextContainer(nil)
             textView.attributedText = validContents
@@ -195,8 +195,8 @@ extension FuriganaTextView
                     
                     if furiganaLength > contentsLenght
                     {
-                        let currentAttributes = validContents.attributes(at: furiganaRange.location + inserted, effectiveRange: nil)
-                        let kerningString = NSAttributedString(string: kDefaultFuriganaKerningControlCharacter, attributes: currentAttributes)
+                        let currentAttributes = convertFromNSAttributedStringKeyDictionary(validContents.attributes(at: furiganaRange.location + inserted, effectiveRange: nil))
+                        let kerningString = NSAttributedString(string: kDefaultFuriganaKerningControlCharacter, attributes: convertToOptionalNSAttributedStringKeyDictionary(currentAttributes))
                         
                         let endLocation = furigana.range.location + furigana.range.length + inserted
                         validContents.insert(kerningString, at: endLocation)
@@ -215,7 +215,7 @@ extension FuriganaTextView
                         furiganaRange.location += inserted
                     }
                     
-                    validContents.addAttribute(kFuriganaAttributeName, value: furiganaValue, range: furiganaRange)
+                    validContents.addAttribute(convertToNSAttributedStringKey(kFuriganaAttributeName), value: furiganaValue, range: furiganaRange)
                 }
                 
                 let fullTextRange = NSMakeRange(0, (validContents.string as NSString).length)
@@ -251,4 +251,20 @@ extension FuriganaTextView
         }
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKeyDictionary(_ input: [NSAttributedString.Key: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKey(_ input: String) -> NSAttributedString.Key {
+	return NSAttributedString.Key(rawValue: input)
 }
