@@ -45,6 +45,7 @@
 		6E6033621DBF3F4D00889D99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E6033651DBF3F4D00889D99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E6033671DBF3F4D00889D99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E847E212181E03400F79434 /* Mews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mews.entitlements; sourceTree = "<group>"; };
 		6E89A9501DDAF47100CA06C2 /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		6E89A9511DDAF47100CA06C2 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		6E89A9521DDAF47100CA06C2 /* ArticleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleManager.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		6E6033571DBF3F4D00889D99 /* Mews */ = {
 			isa = PBXGroup;
 			children = (
+				6E847E212181E03400F79434 /* Mews.entitlements */,
 				6EA1B2FC1EACE1B700B6073C /* Deprecated */,
 				6E89A9681DDAF4D700CA06C2 /* Application */,
 				6E89A9691DDAF55E00CA06C2 /* Models */,
@@ -247,6 +249,11 @@
 						DevelopmentTeam = QPU7LWUEPH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -497,6 +504,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mews/Mews.entitlements;
 				DEVELOPMENT_TEAM = QPU7LWUEPH;
 				INFOPLIST_FILE = Mews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -514,6 +522,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mews/Mews.entitlements;
 				DEVELOPMENT_TEAM = QPU7LWUEPH;
 				INFOPLIST_FILE = Mews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
