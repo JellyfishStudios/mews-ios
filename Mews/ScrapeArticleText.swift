@@ -54,8 +54,8 @@ open class ScrapeArticleText {
         // Step 1:
         //          Take everything between <div id="newsarticle"> and </div>
         //
-        if let result = articleHTML.find("<div id=\"newsarticle\">([\\s\\S]*?)</div>") {
-            var articleText = (articleHTML as NSString).substring(with: result.rangeAt(1))
+        if let result = articleHTML.find("<div class=\"article-main__body article-body\" id=\"js-article-body\">([\\s\\S]*?)</div>") {
+            var articleText = (articleHTML as NSString).substring(with: result.range(at: 1))
             
             // Step 2:
             //          Replace all </p> with line breaks
