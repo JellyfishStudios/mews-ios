@@ -18,7 +18,6 @@ public struct FuriganaTextStyle
 // MARK: - Base Class
 open class FuriganaTextView: UIView
 {
-    
     // MARK: - Public
     
     public var contentView: UITextView? {
@@ -50,10 +49,10 @@ open class FuriganaTextView: UIView
     }
     
     // MARK: - Private
+    
     fileprivate var mutableContents: NSMutableAttributedString?
     fileprivate weak var underlyingTextView: UITextView?
     
-    // [Yan Li]
     // A strong reference is needed, because NSLayoutManagerDelegate is unowned by the manager
     fileprivate var furiganaWordKerner: FuriganaWordKerner?
     
@@ -177,7 +176,6 @@ open class FuriganaTextView: UIView
 // MARK: - Furigana Handling
 extension FuriganaTextView
 {
-    
     fileprivate func addFuriganaAttributes()
     {
         if let validContents = mutableContents
@@ -230,7 +228,6 @@ extension FuriganaTextView
 // MARK: - Auto Layout
 extension FuriganaTextView
 {
-    
     override open var intrinsicContentSize: CGSize
     {
         if let textView = underlyingTextView
@@ -250,7 +247,6 @@ extension FuriganaTextView
             return CGSize.zero
         }
     }
-    
 }
 
 // Helper function inserted by Swift 4.2 migrator.
